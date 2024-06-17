@@ -3,16 +3,75 @@
   <head>
     <%- include('./partials/head') %>
     <title>Homepage</title>
+    <!-- Add Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Add Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 40px;
+      }
+      .card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .card img {
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 20px;
+        background-color: #fff;
+      }
+      .card-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 30px;
+        transition: background-color 0.3s;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
-    <div class="container mt-3">
-      <div class="row row-cols-4">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <% blogs.forEach(blog => { %>
         <div class="col">
-          <div class="card col" style="width: 18rem">
-            <img src="<%= blog.coverImageURL %>" class="card-img-top" />
+          <div class="card h-100">
+            <img
+              src="<%= blog.coverImageURL %>"
+              class="card-img-top"
+              alt="<%= blog.title %> Cover Image"
+            />
             <div class="card-body">
               <h5 class="card-title"><%= blog.title %></h5>
               <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
@@ -24,5 +83,7 @@
     </div>
 
     <%- include('./partials/scripts') %>
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

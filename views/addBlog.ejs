@@ -3,42 +3,70 @@
   <head>
     <%- include('./partials/head') %>
     <title>Add New Blog</title>
+    <!-- Add Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .form-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
-    <div class="container mt-3">
-      <form action="/blog" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="coverImage" class="form-label">Cover Image</label>
-          <input
-            type="file"
-            class="form-control"
-            id="coverImage"
-            name="coverImage"
-            aria-describedby="coverImage"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            aria-describedby="title"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="body">Body</label>
-          <textarea name="body" class="form-control" id="body"></textarea>
-        </div>
-        <div class="mb-3">
-          <button class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+    <div class="container mt-5">
+      <div class="form-container">
+        <form action="/blog" method="post" enctype="multipart/form-data">
+          <div class="mb-4">
+            <label for="coverImage" class="form-label">Cover Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="coverImage"
+              name="coverImage"
+              aria-describedby="coverImage"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              aria-describedby="title"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="body" class="form-label">Body</label>
+            <textarea
+              name="body"
+              class="form-control"
+              id="body"
+              rows="6"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-4 text-center">
+            <button type="submit" class="btn btn-primary btn-lg w-100">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <%- include('./partials/scripts') %>
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
